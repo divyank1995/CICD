@@ -1,2 +1,22 @@
 
 Hello!!! This is a test file to test github connection.
+
+ngrok steps to expose private ip to public
+
+https://www.openwriteup.com/?page_id=1073
+
+Step 1:
+- Visit the ngrok website (https://ngrok.com/) and sign up for a free account.
+- Download ngrok and follow the installation instructions for your ubuntu system
+Run below commands
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+tar -zxvf ngrok-v3-stable-linux-amd64.tgz
+cp ngrok /usr/local/bin
+Step 2: Start ngrok
+- Open a terminal or command prompt.
+- Navigate to the directory where ngrok is installed.
+- Run the following command to start ngrok and expose the Jenkins port (default is 8080):
+ ```
+ ngrok http 8080
+ ```
+Note: don’t press ctrl+C
