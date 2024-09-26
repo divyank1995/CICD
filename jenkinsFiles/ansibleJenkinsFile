@@ -1,0 +1,23 @@
+pipeline {
+agent any
+ stages {
+  stage('Checkout') {
+   steps {
+    // Checkout your Ansible playbook repository
+    git branch: 'main', url: ' https://github.com/amitopenwriteup/tfsource.git'
+   }
+  }
+  stage('Install Ansible') {
+   steps {
+    // Install Ansible on the Jenkins agent
+   sh 'sudo apt-get -y install ansible'
+  }
+ }
+ stage('Run Ansible Playbook') {
+   steps {
+   // Run the Ansible playbook
+  sh 'ansible-playbook -i inventory playbook.yaml'
+  }
+ }
+}
+}

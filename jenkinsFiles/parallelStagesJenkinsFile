@@ -1,0 +1,36 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage('Parallel stages'){
+            failFast true
+         parallel{
+                stage('Stage 1'){
+                    steps{
+                        echo 'Hello 1'
+                        sleep 5   
+                    }
+                }
+                stage('Stage 2'){
+                    steps{
+                        echo 'Hello 2'
+                        sleep 1
+                        error 'simulating eror in stage 2'
+                    }
+                }
+            }
+        }
+        stage('Stage 3'){
+                    steps{
+                        echo 'Hello 3'
+                        sleep 10
+                    }
+                }
+        stage('Stage 4'){
+                    steps{
+                        echo 'Hello 4'
+                        sleep 10
+                    }
+                }
+    }
+}
