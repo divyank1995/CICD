@@ -1,0 +1,15 @@
+pipeline{
+    agent{
+        label 'custom_node'
+    }
+        stages{
+            stage('Build'){
+                steps{
+                    echo "job $JOB_NAME"
+                    sh '''
+                        /usr/games/cowsay "Hello World"
+                    '''
+                }
+            }
+        }
+}
